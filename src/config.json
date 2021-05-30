@@ -1,3 +1,4 @@
 {
-    "EMPLOYEES_DATA_URL": "https://yalantis-react-school-api.yalantis.com/api/task0/users"
+    "EMPLOYEES_DATA_URL": "https://yalantis-react-school-api.yalantis.com/api/task0/users",
+    "LIST_BY_ORDER": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }

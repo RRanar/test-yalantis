@@ -11,9 +11,9 @@ export const EmployeeCard = (props) => {
     }
 
     return (
-        <div className="employee-card">
-            <h2>
-                { lastName + firstName }
+        <div className="employee-card" style={{width: '15em', display: 'flex', flexDirection: 'column'}}>
+            <h2 className={ selectedValue === 'active' ? 'active' : '' }>
+                { `${lastName} ${firstName}` }
             </h2>
             <label htmlFor="active">
                 active
@@ -24,6 +24,7 @@ export const EmployeeCard = (props) => {
                 value = "active"
                 onChange = { changeEmployeeActivate }
                 />
+            <br />
             <label htmlFor="nonactive">
                 nonactive
             </label>
