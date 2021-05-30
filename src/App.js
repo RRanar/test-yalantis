@@ -1,5 +1,6 @@
  import React, { useEffect, useState } from 'react';
  import config from './config.json';
+import { EmployeesBirthdayBlock } from './EmployeesBirthdayBlock';
  import { EmployeesList } from './EmployeesList';
  
  export const App = () => {
@@ -27,7 +28,9 @@
     }, []);
 
   return (
-    <div className='container'>
+    <div className='container' style={{
+      display: 'flex'
+    }}>
       {
         loading ? 
         <h1>Loading...</h1> 
@@ -35,6 +38,7 @@
         <h1>Error: {error.message}</h1> 
         : <EmployeesList items={employees} />
       }
+      <EmployeesBirthdayBlock />
     </div>
   );
 }

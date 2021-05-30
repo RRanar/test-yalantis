@@ -20,7 +20,10 @@ export const EmployeesList = (props) => {
         <div className='employees-list' style={{ 
             display: 'flex',
             justifyContent: 'space-beetwen',
-            paddingLeft: '20px'
+            paddingLeft: '20px',
+            overflow: 'scroll',
+            width: '800px',
+            maxWidth: '800px'
             }}>
             {
                 items ? alphabet.map((letter) => {
