@@ -4,7 +4,7 @@ import {EmployeeCard} from './EmployeeCard';
 
 export const EmployeesList = (props) => {
     const {items} = props;
-    console.log(items);
+
     return (
         <div className='employees-list'>
             <h1>EmployeesList</h1>

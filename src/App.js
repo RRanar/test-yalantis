@@ -15,6 +15,7 @@
         .then((data) => {
           setLoading(false);
           localStorage.setItem('employees', JSON.stringify(data));
+          data.map(ele => localStorage.setItem(`${ele.id}-state`, false ));
         }, (error) => {
           setLoading(false);
           setError(error);
