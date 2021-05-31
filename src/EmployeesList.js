@@ -23,13 +23,14 @@ export const EmployeesList = (props) => {
     return (
        <div>
             <h1>EmployeesList</h1>
-        <div className='employees-list' style={{ 
+        <div style={{ 
             display: 'flex',
             justifyContent: 'space-beetwen',
             paddingLeft: '20px',
-            overflow: 'scroll',
+            overflowX: 'scroll',
             width: '800px',
-            maxWidth: '800px'
+            maxWidth: '800px',
+            paddingBottom: '20px'
             }}>
             {
                 items ? alphabet.map(letter => {
