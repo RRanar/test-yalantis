@@ -1,4 +1,18 @@
 {
     "EMPLOYEES_DATA_URL": "https://yalantis-react-school-api.yalantis.com/api/task0/users",
-    "LIST_BY_ORDER": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "ORDER_BY_ALPHABET": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "MONTHS_MAP": {
+        "May": 5,
+        "June": 6,
+        "July" : 7 ,
+        "Augest" : 8,
+        "September": 9,
+        "October": 10,
+        "November": 11,
+        "December": 12,
+        "January": 1,
+        "February": 2,
+        "March": 3,
+        "April" : 4
+    }
 }

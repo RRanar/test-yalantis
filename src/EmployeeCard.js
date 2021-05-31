@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
-
 export const EmployeeCard = (props) => {
-    const {id, lastName, firstName} = props;
-    const currentState = localStorage[`${id}-state`] === 'false' ? false : true;
-    const [selectedValue, setSelectedValue] = useState(currentState ? 'active' : 'nonactive');
-
-    const changeEmployeeActivate = (e) => {
-            setSelectedValue(e.target.value);
-            localStorage[`${id}-state`] = e.target.value === 'active' ? true : false;
-    }
-
+    const {lastName, firstName, isActive, changeEmployeeActivate , id } = props;
+    
     return (
         <div className="employee-card" style={{width: '15em', display: 'flex', flexDirection: 'column'}}>
-            <h2 className={ selectedValue === 'active' ? 'active' : '' }>
+            <h2 style={isActive ? {color: 'blue'} : {color: 'black'}}>
                 { `${lastName} ${firstName}` }
             </h2>
             <label htmlFor="active">
@@ -20,9 +11,10 @@ export const EmployeeCard = (props) => {
             </label>
             <input 
                 type = "radio" 
-                checked = { selectedValue === 'active' } 
+                checked = { isActive } 
                 value = "active"
                 onChange = { changeEmployeeActivate }
+                id = {`active-${id}`}
                 />
             <br />
             <label htmlFor="nonactive">
@@ -30,9 +22,10 @@ export const EmployeeCard = (props) => {
             </label>
             <input 
                 type = "radio" 
-                checked = { selectedValue === 'nonactive'  } 
+                checked = { !isActive  } 
                 value = "nonactive"
                 onChange = { changeEmployeeActivate }
+                id = {`nonactive-${id}`}
                 />
         </div>
     );

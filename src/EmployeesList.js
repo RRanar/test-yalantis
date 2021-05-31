@@ -3,14 +3,20 @@ import { EmployeeCard } from './EmployeeCard';
 import config from './config.json';
 
 export const EmployeesList = (props) => {
-    const { items } = props;
-    const alphabet = config.LIST_BY_ORDER.split('');
+    const { items, refresh } = props;
+    const alphabet = config.ORDER_BY_ALPHABET.split('');
     const letterCss = { 
         minWidth: '200px',
         width: '200px',
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'center'
+    };
+
+    const changeEmployeeActive= (e) => {
+        const val = e.target.value === 'active' ? true : false;
+        const employeeId = e.target.id.replace(`${e.target.value}-`, '');
+        refresh(employeeId, val);
     };
 
 
@@ -26,29 +32,35 @@ export const EmployeesList = (props) => {
             maxWidth: '800px'
             }}>
             {
-                items ? alphabet.map((letter) => {
-                    const employeesByLeter = items.map((employee) => {
-                        return employee.lastName.charAt(0) === letter ? (
+                items ? alphabet.map(letter => {
+                    const filtredByLeter = items.filter(ele =>  ele.lastName.charAt(0) === letter);
+                    const employeesByLeter = filtredByLeter && filtredByLeter.length > 0 ? filtredByLeter.map(employee => {
+                        return (
                             <EmployeeCard 
                                 lastName={employee.lastName} 
                                 firstName={employee.firstName}
-                                id={employee.id}
-                                key={employee.id}  
+                                key={employee.id}
+                                id = {employee.id}
+                                isActive = { employee.isActive }  
+                                changeEmployeeActivate = {changeEmployeeActive}
                             />
-                        ) : null ;
-                    });
-                    console.log(employeesByLeter);
+                        );
+                    }) : [];
 
-                    return employeesByLeter.some(data => data !== null) ? (
+                    return employeesByLeter && employeesByLeter.length > 0 ? (
                         <div style={{
                             minWidth: '250px',
                             width: '250px'
-                        }}>
+                        }}
+                            key={letter}
+                        >
                             <h2>{letter}</h2>
                             { employeesByLeter }
                         </div>
                     ) : (
-                        <div style={letterCss}>
+                        <div style={letterCss}
+                            key={letter}
+                        >
                             <h2>{letter}</h2>
                             <h2>---</h2>
                         </div>
