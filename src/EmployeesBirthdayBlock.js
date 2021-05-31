@@ -7,11 +7,9 @@ export const EmployeesBirthdayBlock = (props) => {
     return (
         <div style={{
             width: '250px',
-            maxWidth: '250px',
-            paddingLeft: '40px',
-            paddingBottom: '20px'
+            maxWidth: '250px'
         }}>
-            <h1 style={{textDecoration: 'underline'}}>EmployeesBirthdayBlock</h1>
+            <h1>EmployeesBirthdayBlock</h1>
             <div>
                 {
                     activeEmployees && activeEmployees.length > 0 ? 
